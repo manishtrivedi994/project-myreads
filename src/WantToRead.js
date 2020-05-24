@@ -1,43 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
+import Book from './Book'
 
-class WantToRead extends Component {
-    render () {
-        return (
+function WantToRead(props) {
+  
+  return (
+
             <div className='bookshelf'>
                 <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                        {this.props.books.map(book => {
+                        {props.books.map((book) => {
                             if(book.shelf==='wantToRead') {
-                               return (
-                                <li>
-                                <div className="book" key={book.id}>
-                                <div className="book-top">
-                                  <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
-                                  <div className="book-shelf-changer">
-                                    <select>
-                                      <option value="move" disabled>Move to...</option>
-                                      <option value="currentlyReading">Currently Reading</option>
-                                      <option value="wantToRead">Want to Read</option>
-                                      <option value="read">Read</option>
-                                      <option value="none">None</option>
-                                    </select>
-                                  </div>
-  
-                                </div>
-                                <div className="book-title">{book.title}</div>
-                                <div className="book-authors">{book.authors}</div>
-                               </div>
-                              </li> 
-                               )
+                               return <li key={book.id}>
+                               <Book book={book} onShelfChangeHandler={props.onShelfChangeHandler}/>
+                              </li>
                             }
                         })}
                     
                     </ol>
                 </div>
             </div>
+                
+
+
+            
         )
-    }
+    
 }
 
 export default WantToRead
