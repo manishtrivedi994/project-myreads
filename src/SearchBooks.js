@@ -64,7 +64,7 @@ class SearchBooks extends Component {
                             .searchResults
                             .map((book, index) => (
                                 <li key={book.id + index}>
-                                    <Book book={book} onShelfChange={this.props.onShelfChange}/>
+                                    <Book book={book} onShelfChangeHandler={this.props.onShelfChangeHandler}/>
                                 </li>
                             ))}
                     </ol>

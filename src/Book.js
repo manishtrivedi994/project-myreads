@@ -5,7 +5,7 @@ class Book extends React.Component{
      ShelfChanger = (e) => {
         const shelf = e.target.value;
         this.props.onShelfChangeHandler(this.props.book, shelf);
-    };
+    }
 
     render() {
 
